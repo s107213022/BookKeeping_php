@@ -7,6 +7,7 @@ $sql1 = "select sum(money) from mymoney where status = '支出' ;";
 $d = mysqli_query($conn, $sql1) or die("MySQL query error");
 $decrease = mysqli_fetch_assoc($d);
 $total = $increase['sum(money)'] - $decrease['sum(money)'];
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -45,7 +46,9 @@ $total = $increase['sum(money)'] - $decrease['sum(money)'];
             <button onclick='showdebt1()'>別人欠的錢錢</button>
             <button onclick='showcredit1()'>我欠別人的錢錢</button>
             <button onclick='showcancel()'>結算的(不是這個月的)</button>
+            
         </div>
+        <button onclick="window.location.href = 'logout.php';">登出</button> <!-- 修改登出按鈕的 onclick -->
 
     </div>
 </body>
